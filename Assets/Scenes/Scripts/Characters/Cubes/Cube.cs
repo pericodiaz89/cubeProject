@@ -28,13 +28,15 @@ public class Cube : Entity, IClickable{
 
     public virtual void MoveTo(Vector3 nextPosition) {
         Level.Singleton.Entities.Remove(transform.position);
-		AnimationHelper.AnimateJump2(gameObject,Vector3.down,nextPosition,0f,"EndExecution",null);
+		CubeAnimations.AnimateMove(gameObject, Vector3.down, nextPosition);
         Level.Singleton.Entities.Add(nextPosition, this);
     }
 	
 	public void EndExecution(){
 		OrganizeTransform();
-		command.EndExecution();
+		if(command != null){
+			command.EndExecution();
+		}
 	}
 	
 	private Vector3 Vector3Round(Vector3 v){
@@ -64,13 +66,6 @@ public class Cube : Entity, IClickable{
                 if(options[i].EndPosition.y - transform.position.y > 1)
                 {
                     options.RemoveAt(i);
-                }
-                else
-                {
-                    if (options[i].EndPosition.x >= Level.Dimension || options[i].EndPosition.x < 0 || options[i].EndPosition.z >= Level.Dimension || options[i].EndPosition.z < 0)
-                    {
-                        options[i] = new OutOfBounds(this, options[i].EndPosition);
-                    }
                 }
             }
 

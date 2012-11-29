@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class DuplicatorCube : Cube {
 	public Object clone;
     public int duplicateTimes;
+	
 	public override Command[] Options {
 		get {
 		    List<Command> commands = new List<Command>();
@@ -16,7 +17,8 @@ public class DuplicatorCube : Cube {
 	}
 	
 	public void Duplicate(Vector3 newPosition){
-		Instantiate(clone, newPosition, transform.rotation)	;
+		GameObject newClone = (GameObject) Instantiate(clone, newPosition, transform.rotation);
+		CubeAnimations.AnimateDuplication(newClone);
         duplicateTimes--;
 	}
 }

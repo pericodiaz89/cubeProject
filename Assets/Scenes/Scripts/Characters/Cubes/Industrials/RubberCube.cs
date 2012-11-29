@@ -52,15 +52,6 @@ public class RubberCube : Cube {
                 options[3] = new Move(this, CubeHelper.GetTopPosition(transform.position + Vector3.right * -1.0f));
 			}
 
-            for (int i = 0; i < 4; i++ )
-            {
-                if (options[i].EndPosition.x >= Level.Dimension || options[i].EndPosition.x < 0 || options[i].EndPosition.z >= Level.Dimension || options[i].EndPosition.z < 0)
-                {
-                    options[i] = new OutOfBounds(this, options[i].EndPosition);
-                }
-            }
-            Debug.Log(options[0] + "" +options[0].EndPosition);
-
             return options;
 		}
 	}
@@ -88,4 +79,11 @@ public class RubberCube : Cube {
 		
 		return nextBouncePosition;
 	}
+	
+	public  void Bounce(Vector3 nextPosition) {
+        Level.Singleton.Entities.Remove(transform.position);
+        transform.position = nextPosition;
+        Level.Singleton.Entities.Add(transform.position, this);
+    }
+	
 }

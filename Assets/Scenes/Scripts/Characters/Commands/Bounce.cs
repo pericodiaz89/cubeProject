@@ -6,7 +6,7 @@ public class Bounce : Command {
 	Vector3 intermediate;
 		
 	// Use this for initialization
-	public Bounce(Cube receiver, Vector3 endPosition, Vector3 intermediate) : base(receiver, endPosition)
+	public Bounce(RubberCube receiver, Vector3 endPosition, Vector3 intermediate) : base(receiver, endPosition)
 	{
 		this.intermediate = intermediate;
 	}
@@ -19,7 +19,7 @@ public class Bounce : Command {
 	public override void Execute ()
 	{
 		//Cube.MoveTo(intermediate);
-		Cube.MoveTo(EndPosition);
+		((RubberCube)Cube).Bounce(EndPosition);
 		EndExecution();
 	}
 }
