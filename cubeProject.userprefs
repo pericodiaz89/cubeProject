@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Characters\Cubes\Industrials\RubberCube.cs">
     <Files>
       <File FileName="Assets\Scripts\Characters\Cubes\Industrials\RubberCube.cs" Line="78" Column="18" />
@@ -9,6 +10,24 @@
       <File FileName="Assets\Scripts\Characters\Commands\Bounce.cs" Line="20" Column="56" />
       <File FileName="Assets\Scripts\Characters\Cubes\Naturals\IceCube.cs" Line="33" Column="1" />
       <File FileName="Assets\Scripts\Characters\Commands\Slide.cs" Line="1" Column="1" />
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Characters\Cubes\Naturals\CloudCube.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Characters\CubeControllers\CubeControllerInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Characters\Cubes\Cube.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Characters\Commands\OutOfBounds.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Characters\Cubes\Naturals\CloudCube.cs" Line="97" Column="13" />
+      <File FileName="Assets\Scripts\Characters\Cubes\Naturals\IceCube.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utilities/Animations/AnimationHelper.cs">
+    <Files>
+      <File FileName="Assets/Scenes/Scripts/Characters/Cubes/Scientific/TwinCube.cs" Line="88" Column="2" />
+      <File FileName="Assets/Scenes/Scripts/Characters/Cubes/Cube.cs" Line="30" Column="17" />
+      <File FileName="Assets/Scripts/Utilities/Animations/CubeAnimations.cs" Line="23" Column="3" />
+      <File FileName="Assets/Scripts/Utilities/Animations/AnimationHelper.cs" Line="24" Column="32" />
+>>>>>>> 9a72fa277aa9f97db008dd86cf78565f7c60917e
+>>>>>>> 94b49c475644b07d19b98e59b3506d79bb34bdd3
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

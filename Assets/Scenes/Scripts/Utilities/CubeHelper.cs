@@ -31,7 +31,7 @@ public class CubeHelper {
         return position;
     }
     public static bool IsFree(Vector3 position) {
-        return Level.Singleton.Entities.ContainsKey(position);
+        return !Level.Singleton.Entities.ContainsKey(position);
     }
     public static Vector3 GetLastPositionInDirection(Vector3 position, Vector3 direction) {
 		int diff = GetDifferenceInDirection(position,direction.normalized);

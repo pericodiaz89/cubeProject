@@ -77,4 +77,11 @@ public class RubberCube : Cube {
         Level.Singleton.Entities.Add(endPosition, this);
 		EndExecution();
 	}
+	
+	public  void Bounce(Vector3 nextPosition) {
+        Level.Singleton.Entities.Remove(transform.position);
+        transform.position = nextPosition;
+        Level.Singleton.Entities.Add(transform.position, this);
+    }
+	
 }

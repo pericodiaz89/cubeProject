@@ -7,6 +7,6 @@ public class Duplicate : Command {
 	public override void Execute ()
 	{
 		((DuplicatorCube)Cube).Duplicate(EndPosition);
-        EndExecution();
+        //EndExecution();
 	}
 }
