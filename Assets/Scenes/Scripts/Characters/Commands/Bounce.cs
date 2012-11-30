@@ -14,11 +14,7 @@ public class Bounce : Command {
 
 	public override void Execute ()
 	{
-		//Cube.MoveTo(intermediate);
-		//Cube.MoveTo(EndPosition);
-		//AnimationHelper.AnimateBounce(Cube,Vector3.down,bouncePosition,EndPosition);
 		((RubberCube)Cube).Bounce(EndPosition,bouncePositions);
-		//EndExecution();
 	}
 
 	public List<Vector3> BouncePositions {

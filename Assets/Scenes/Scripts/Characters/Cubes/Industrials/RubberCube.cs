@@ -56,7 +56,8 @@ public class RubberCube : Cube {
 		}
 	}
 	
-	private void JumpRecursive(Vector3 currentPosition, List<Command> commands, List<Vector3> jumpPositions, Vector3 direction)
+	private void JumpRecursive(Vector3 currentPosition, List<Command> commands, 
+		List<Vector3> jumpPositions, Vector3 direction)
 	{
 		Vector3 nextPosition = currentPosition + direction;
 		if (Level.Singleton.Entities.ContainsKey(nextPosition + Vector3.down)){
@@ -66,22 +67,24 @@ public class RubberCube : Cube {
 			// Sigue la recursividad
 			int jumpSize = CubeHelper.GetDifferenceInDirection(nextPosition,Vector3.down) - 1;
 			Vector3 jumpPosition = nextPosition + Vector3.down *jumpSize ; // changed multiply
+			jumpPositions.Add(jumpPosition);
 			JumpRecursive(jumpPosition,commands,jumpPositions,direction);
 		}
 	}
 	
 	public void Bounce(Vector3 endPosition, List<Vector3> bouncePositions){
-		 Level.Singleton.Entities.Remove(transform.position);
-		transform.position = endPosition;
-		//AnimationHelper.AnimateSlide(gameObject,endPosition,0f,"SlideEndExecution",new float[]{direction.x,direction.y,direction.z});
+		bouncePositions.Add(endPosition);
+		Level.Singleton.Entities.Remove(transform.position);
+		Vector3[] jumps = new Vector3[bouncePositions.Count];
+		//TODO Change in AnimationHelper to List
+		print ("Lista de Jumps");
+		for (int i = 0 ; i < jumps.Length ; i++){
+			jumps[i] = bouncePositions[i];
+			print (jumps[i]);
+		}
+		print ("Fin de lista de jumps");
+		CubeAnimations.AnimateBounce(gameObject,Vector3.down,jumps);
         Level.Singleton.Entities.Add(endPosition, this);
-		EndExecution();
 	}
-	
-	public  void Bounce(Vector3 nextPosition) {
-        Level.Singleton.Entities.Remove(transform.position);
-        transform.position = nextPosition;
-        Level.Singleton.Entities.Add(transform.position, this);
-    }
 	
 }

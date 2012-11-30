@@ -22,18 +22,14 @@ public class AnimationHelper : MonoBehaviour
 		//float delay = AnimateShrink(gameObject, 0f);
 		//AnimateGrow(gameObject, delay);
 		
-		/*
-		 * How to animatebounce
-		 * 
-		 * Vector3[] testPositions = {gameObject.transform.position + new Vector3(1,-1,0),
-		gameObject.transform.position + new Vector3(1,2,0) + new Vector3(1,-1,0),
-		gameObject.transform.position + new Vector3(1,2,0) + new Vector3(1,-1,0) + new Vector3(4,2,0)};
-		
-		AnimateBounce(gameObject, 
-			new Vector3(0,-1,0),
-			testPositions, 
-			0.0f);
-			*/
+//		Vector3[] testPositions = {gameObject.transform.position + new Vector3(1,-1,0),
+//		gameObject.transform.position + new Vector3(1,-1,0) + new Vector3(1,-3,0),
+//		gameObject.transform.position + new Vector3(1,-1,0) + new Vector3(1,-3,0) + new Vector3(1,-1,0)};
+//		
+//		AnimateBounce(gameObject, 
+//			Vector3.down,
+//			testPositions, 
+//			0.0f);
 	}
 	
 	private static Hashtable getBasicHs (Vector3 amount, float time, float delay, iTween.EaseType easeType)
@@ -75,14 +71,12 @@ public class AnimationHelper : MonoBehaviour
 	/// </summary>
 	public void AnimateBouncePositions ()
 	{
-		
 		actualPosition++;
 		if (actualPosition < nextPositions.Length - 1) {// The last last position should make the recursive call
 			AnimateJump2 (bounceObject, down, nextPositions [actualPosition], delay, "AnimateBouncePositions", parameters);
 		} else {// This is the last movement
 			AnimateJump2 (bounceObject, down, nextPositions [actualPosition], delay, onCompleteMethod, parameters);
 		}
-		
 	}
 	
 	#endregion
@@ -314,7 +308,6 @@ public class AnimationHelper : MonoBehaviour
 	public void RotationFinished ()
 	{
 		if (originTemp != null) {
-			print ("entro");
 			rotationGameObject.transform.parent = null;
 			rotationGameObject = null;
 			MonoBehaviour.Destroy (originTemp);

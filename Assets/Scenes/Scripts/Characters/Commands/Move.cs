@@ -10,6 +10,6 @@ public class Move : Command {
     public override void Execute()
     {
 		Cube.MoveTo(EndPosition);
-        EndExecution();
+        //EndExecution();
     }
 }

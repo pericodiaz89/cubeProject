@@ -32,7 +32,7 @@ public class IceCube : Cube {
 	public void Slide(Vector3 endPosition, Vector3 direction){
         Level.Singleton.Entities.Remove(transform.position);
 		//transform.position = endPosition;
-		AnimationHelper.AnimateSlide(gameObject,endPosition,0f,"SlideEndExecution",new float[]{direction.x,direction.y,direction.z});
+//		AnimationHelper.AnimateSlide(gameObject,endPosition,0f,"SlideEndExecution",new float[]{direction.x,direction.y,direction.z});
         Level.Singleton.Entities.Add(endPosition, this);
 	}
 	
@@ -41,7 +41,7 @@ public class IceCube : Cube {
 		|| Command.EndPosition.x < 0 
 		|| Command.EndPosition.z >= Level.Dimension 
 		|| Command.EndPosition.z < 0){
-			FallOutOfBounds(Command,Command.EndPosition);
+//			FallOutOfBounds(Command,Command.EndPosition);
 		}else{
 			float[] pos = (float[])vals;
 			Vector3 direction = new Vector3(pos[0],pos[1],pos[2]);
